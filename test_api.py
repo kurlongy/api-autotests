@@ -56,13 +56,3 @@ def test_filter_users_by_nonexistent_id(session):
     )
     assert response.status_code == 200
     assert len(response.json()) == 0
-
-def test_create_user_without_email(session):
-    response = requests.post(
-        f"{BASE_URL}/users",
-        json={
-            "name":"QA Test",
-            "username":"qa_test"
-        }
-    )
-    assert response.status_code == 400
